@@ -7,7 +7,7 @@
             $posts = $this->Postingan_model->get_posts();
             $data['posts'] = $posts;
         
-            $this->load->view('postingan', $data);
+            $this->load->view('beranda', $data);
           }
     }
 ?>
