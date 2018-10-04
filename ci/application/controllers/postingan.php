@@ -15,5 +15,13 @@
 
             $this->load->view('beranda', $data);
           }
+        public function cerpen()
+        {
+            $this->load->helper('url');
+            $this->load->model('Postingan_model');
+            $cerpen = $this->Postingan_model->get_posts_cerpen();
+            $data['cerpen'] = $cerpen;
+            $this->load->view('cerpen', $data);
+        }
     }
 ?>
