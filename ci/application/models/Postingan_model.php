@@ -7,6 +7,24 @@
             $query = $this->db->get('postingan');
             
             return $query->result();
-          }
+        }
+        public function get_posts_cerpen() {
+            $this->load->database();
+            $this->db->where('kategori', 'Cerpen');
+            $query = $this->db->get('postingan');
+            return $query->result();
+        }
+            public function get_posts_novel() {
+            $this->load->database();
+            $this->db->where('kategori', 'Novel');
+            $query = $this->db->get('postingan');
+            return $query->result();
+        }
+        public function get_posts_puisi() {
+            $this->load->database();
+            $this->db->where('kategori', 'Puisi');
+            $query = $this->db->get('postingan');
+            return $query->result();
+        }
     }
 ?>
