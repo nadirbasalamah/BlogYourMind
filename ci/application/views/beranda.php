@@ -36,19 +36,23 @@
     <main role="main" class="container">
       <div class="starter-template">
       <h1>Selamat datang di BlogYourMind</h1>
+      <br>
       <h3>Tempat dimana Anda berekspresi dengan kata-kata</h3>
+      <br>
     <h3>Baca Cerpen Terbaik</h3>
     <?php foreach ($cerpen as $post): ?>
         <h2><?php echo $post->judul; ?></h2>
         <p><?php echo $post->konten; ?></p>
         <p><?php echo $post->kategori; ?></p>
     <?php endforeach; ?>
+    <br>
     <h3>Baca Novel Terbaik</h3>
     <?php foreach ($novel as $post): ?>
         <h2><?php echo $post->judul; ?></h2>
         <p><?php echo $post->konten; ?></p>
         <p><?php echo $post->kategori; ?></p>
     <?php endforeach; ?>
+    <br>
     <h3>Baca Puisi Terbaik</h3>
     <?php foreach ($puisi as $post): ?>
         <h2><?php echo $post->judul; ?></h2>
