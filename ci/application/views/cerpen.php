@@ -27,10 +27,16 @@
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('index.php/postingan/puisi'); ?>">Puisi</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url('index.php/postingan/register'); ?>">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Daftar</button>
+            </a>
+          </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Daftar</button>
-        </form>
+        <form class="form-inline my-2 my-lg-0" action="<?php echo base_url('index.php/postingan/pencarian'); ?>" method="post">
+          <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+          </form>
       </div>
     </nav>
     <main role="main" class="container">

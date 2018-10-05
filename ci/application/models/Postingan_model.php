@@ -26,5 +26,11 @@
             $query = $this->db->get('postingan');
             return $query->result();
         }
+        public function get_posts_judul($judul) {
+            $this->load->database();
+            $this->db->where('judul', $judul);
+            $query = $this->db->get('postingan');
+            return $query->result();
+        }
     }
 ?>
