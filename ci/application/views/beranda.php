@@ -19,7 +19,7 @@
             <a class="nav-link" href="<?php echo base_url(); ?>">Beranda <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('postingan/cerpen'); ?>">Cerpen</a>
+            <a class="nav-link" href="<?php echo base_url('index.php/postingan/cerpen'); ?>">Cerpen</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Novel</a>
