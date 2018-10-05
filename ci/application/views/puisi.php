@@ -35,11 +35,11 @@
     </nav>
     <main role="main" class="container">
       <div class="starter-template">
-      <h1>Cerpen</h1>
+      <h1>Puisi</h1>
       <br>
-      <h3>Daftar cerpen</h3>
+      <h3>Daftar puisi</h3>
       <br>
-    <?php foreach ($cerpen as $post): ?>
+    <?php foreach ($puisi as $post): ?>
         <h2><?php echo $post->judul; ?></h2>
         <p><?php echo $post->konten; ?></p>
         <p><?php echo $post->kategori; ?></p>

@@ -23,5 +23,21 @@
             $data['cerpen'] = $cerpen;
             $this->load->view('cerpen', $data);
         }
+        public function novel()
+        {
+            $this->load->helper('url');
+            $this->load->model('Postingan_model');
+            $novel = $this->Postingan_model->get_posts_novel();
+            $data['novel'] = $novel;
+            $this->load->view('novel', $data);
+        }
+        public function puisi()
+        {
+            $this->load->helper('url');
+            $this->load->model('Postingan_model');
+            $puisi = $this->Postingan_model->get_posts_puisi();
+            $data['puisi'] = $puisi;
+            $this->load->view('puisi', $data);
+        }
     }
 ?>

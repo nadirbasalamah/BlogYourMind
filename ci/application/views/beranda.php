@@ -22,10 +22,10 @@
             <a class="nav-link" href="<?php echo base_url('index.php/postingan/cerpen'); ?>">Cerpen</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Novel</a>
+            <a class="nav-link" href="<?php echo base_url('index.php/postingan/novel'); ?>">Novel</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Puisi</a>
+            <a class="nav-link" href="<?php echo base_url('index.php/postingan/puisi'); ?>">Puisi</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
