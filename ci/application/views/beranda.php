@@ -32,6 +32,11 @@
             <button class="btn btn-outline-light my-2 my-sm-0" >Daftar</button>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url('index.php/postingan/login'); ?>">
+            <button class="btn btn-outline-light my-2 my-sm-0" >Masuk</button>
+            </a>
+          </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" action="<?php echo base_url('index.php/postingan/pencarian'); ?>" method="post">
           <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search" aria-label="Search">

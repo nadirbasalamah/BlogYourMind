@@ -53,7 +53,6 @@ $data = array(
 );
 $result = $this->Pengguna_model->registration_insert($data);
 if ($result == TRUE) {
-$data['message_display'] = 'Registration Successfully !';
 $this->load->view('login', $data);
 } else {
 $data['message_display'] = 'Username already exist!';

@@ -9,7 +9,7 @@
     <title>Login akun</title>
   </head>
   <body class="text-center">
-    <form class="form-signin">
+    <form class="form-signin" action="<?php echo base_url('index.php/user_authentication/user_login_process'); ?>" method="post">
       <h1 class="h3 mb-3 font-weight-normal">Login dengan menggunakan akun anda</h1>
       <label for="inputEmail" class="sr-only">Nama pengguna</label>
       <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Nama pengguna" required autofocus>
@@ -18,6 +18,8 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
       <p class="mt-5 mb-3 text-muted">Belum mempunyai akun ? </p>
       <a href="<?php echo base_url('index.php/postingan/register'); ?>">Daftar disini</a>
+      <br>
+      <a href="<?php echo base_url('index.php'); ?>">Kembali ke beranda</a>
     </form>
   </body>
 </html>

@@ -26,6 +26,9 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
       <p class="mt-5 mb-3 text-muted">Sudah mempunyai akun ? </p>
       <a href="<?php echo base_url('index.php/postingan/login'); ?>">Login</a>
+      <br/>
+      <br/>
+      <a href="<?php echo base_url('index.php'); ?>">Kembali ke beranda</a>
     </form>
   </body>
 </html>
