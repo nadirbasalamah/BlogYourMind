@@ -17,7 +17,7 @@
       <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
       <p class="mt-5 mb-3 text-muted">Belum mempunyai akun ? </p>
-      <a href="#">Daftar disini</a>
+      <a href="<?php echo base_url('index.php/postingan/register'); ?>">Daftar disini</a>
     </form>
   </body>
 </html>

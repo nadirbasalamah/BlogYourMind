@@ -9,7 +9,7 @@
     <title>Registrasi akun</title>
   </head>
   <body class="text-center">
-    <form class="form-signin" action="<?php echo base_url('index.php/postingan/register'); ?>" method="post">
+    <form class="form-signin" action="<?php echo base_url('index.php/user_authentication/new_user_registration'); ?>" method="post">
       <h1 class="h3 mb-3 font-weight-normal">Registrasi akun</h1>
       <label for="inputEmail" class="sr-only">Nama pengguna</label>
       <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Nama pengguna" required autofocus>
@@ -21,9 +21,11 @@
       <input type="text" name="alamat" id="inputAddress" class="form-control" placeholder="Alamat" required autofocus>
       <label for="inputPN" class="sr-only">Nomor ponsel</label>
       <input type="number" name="notelp" id="inputPN" class="form-control" placeholder="Nomor ponsel" required autofocus>
+      <br/>
+      <br/>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
       <p class="mt-5 mb-3 text-muted">Sudah mempunyai akun ? </p>
-      <a href="#">Login</a>
+      <a href="<?php echo base_url('index.php/postingan/login'); ?>">Login</a>
     </form>
   </body>
 </html>
