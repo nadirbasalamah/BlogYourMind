@@ -32,5 +32,10 @@
             $query = $this->db->get('postingan');
             return $query->result();
         }
+        public function unggah_karya($data)
+        {
+            $this->load->database();
+            $this->db->insert('postingan', $data);
+        }
     }
 ?>

@@ -16,13 +16,13 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="<?php echo base_url(); ?>">Beranda <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo base_url(); ?>">Beranda</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('index.php/postingan/cerpen'); ?>">Cerpen</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('index.php/postingan/novel'); ?>">Novel</a>
+            <a class="nav-link" href="<?php echo base_url('index.php/postingan/novel'); ?>">Novel <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('index.php/postingan/puisi'); ?>">Puisi</a>
@@ -47,9 +47,14 @@
       <h3>Daftar novel</h3>
       <br>
     <?php foreach ($novel as $post): ?>
-        <h2><?php echo $post->judul; ?></h2>
-        <p><?php echo $post->konten; ?></p>
-        <p><?php echo $post->kategori; ?></p>
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="<?php echo base_url(); ?>assets/default.svg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $post->judul; ?></h5>
+        <p class="card-text"><?php echo $post->konten; ?></p>
+        <a href="#" class="btn btn-primary">Baca</a>
+      </div>
+      </div>
     <?php endforeach; ?>
       </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

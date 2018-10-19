@@ -122,6 +122,20 @@ public function tulis()
             $this->load->helper('url');
 
             $this->load->view('tulis');
+
+            $this->load->model('Postingan_model');
+
+            $data = array(
+                'id' => 0,
+                'gambar' => 'test',
+                'judul' => $this->input->post('judul'),
+                'konten' => $this->input->post('konten'),
+                'kategori' => $this->input->post('gridRadios')
+            );
+
+            $this->Postingan_model->unggah_karya($data);
+
+            redirect(base_url('index.php/user_authentication/dasbor'),'refresh');
             
 }
 

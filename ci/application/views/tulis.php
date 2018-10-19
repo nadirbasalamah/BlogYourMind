@@ -33,13 +33,13 @@ header("location: " . base_url('index.php/user_authentication/'));
               <li class="nav-item">
                 <a class="nav-link active" href="<?php echo base_url('index.php/user_authentication/dasbor'); ?>">
                   <span data-feather="home"></span>
-                  Dasbor <span class="sr-only">(current)</span>
+                  Dasbor 
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <span data-feather="file"></span>
-                  Daftar karya
+                  Daftar karya 
                 </a>
               </li>
               <li class="nav-item">
@@ -102,7 +102,7 @@ header("location: " . base_url('index.php/user_authentication/'));
     </div>
   </div>
   <div class="form-group row">
-    <div class="col-sm-10">
+    <div class="col-sm-12">
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Tulis karya Anda</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="konten"></textarea>

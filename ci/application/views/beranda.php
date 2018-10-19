@@ -52,23 +52,38 @@
       <br>
     <h3>Baca Cerpen Terbaik</h3>
     <?php foreach ($cerpen as $post): ?>
-        <h2><?php echo $post->judul; ?></h2>
-        <p><?php echo $post->konten; ?></p>
-        <p><?php echo $post->kategori; ?></p>
-    <?php endforeach; ?>
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="<?php echo base_url(); ?>assets/default.svg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $post->judul; ?></h5>
+        <p class="card-text"><?php echo $post->konten; ?></p>
+        <a href="#" class="btn btn-primary">Baca</a>
+      </div>
+      </div>
+      <?php endforeach; ?>    
     <br>
     <h3>Baca Novel Terbaik</h3>
     <?php foreach ($novel as $post): ?>
-        <h2><?php echo $post->judul; ?></h2>
-        <p><?php echo $post->konten; ?></p>
-        <p><?php echo $post->kategori; ?></p>
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="<?php echo base_url(); ?>assets/default.svg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $post->judul; ?></h5>
+        <p class="card-text"><?php echo $post->konten; ?></p>
+        <a href="#" class="btn btn-primary">Baca</a>
+      </div>
+      </div>
     <?php endforeach; ?>
     <br>
     <h3>Baca Puisi Terbaik</h3>
     <?php foreach ($puisi as $post): ?>
-        <h2><?php echo $post->judul; ?></h2>
-        <p><?php echo $post->konten; ?></p>
-        <p><?php echo $post->kategori; ?></p>
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="<?php echo base_url(); ?>assets/default.svg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $post->judul; ?></h5>
+        <p class="card-text"><?php echo $post->konten; ?></p>
+        <a href="#" class="btn btn-primary">Baca</a>
+      </div>
+      </div>
     <?php endforeach; ?>
       </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

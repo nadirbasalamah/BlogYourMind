@@ -62,7 +62,7 @@ header("location: " . base_url('index.php/user_authentication/'));
             <h1 class="h2">Selamat datang, <?php echo $nama; ?> ! </h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
-              <a href="#">
+              <a href="<?php echo base_url('index.php/user_authentication/tulis'); ?>">
                 <button class="btn btn-sm btn-outline-secondary">Tulis karya</button>
               </a>
               <a href="#">
