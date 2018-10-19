@@ -68,6 +68,8 @@ header("location: login");
             </div>
           </div>
           <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+          <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
         </main>
       </div>
     </div>
