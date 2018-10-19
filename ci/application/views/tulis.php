@@ -59,18 +59,62 @@ header("location: " . base_url('index.php/user_authentication/'));
         </nav>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Selamat datang, <?php echo $nama; ?> ! </h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
-              <div class="btn-group mr-2">
-              <a href="#">
-                <button class="btn btn-sm btn-outline-secondary">Tulis karya</button>
-              </a>
-              <a href="#">
-                <button class="btn btn-sm btn-outline-secondary">Lihat karya</button>
-              </a>
-              </div>
-            </div>
+            <h1 class="h2">Tulis karya Anda</h1>
           </div>
+    <form action="#" method="post">
+  <div class="form-group row">
+    <label for="judul" class="col-sm-2 col-form-label">Judul karya</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="judul" name="judul" placeholder="Masukkan judul karya">
+    </div>
+  </div>
+  <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">Kategori karya</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="cerpen" checked>
+          <label class="form-check-label" for="gridRadios1">
+            Cerpen
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="novel">
+          <label class="form-check-label" for="gridRadios2">
+            Novel
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="puisi">
+          <label class="form-check-label" for="gridRadios3">
+            Puisi
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <div class="form-group row">
+    <div class="col-sm-2">Masukkan gambar sampul</div>
+        <div class="col-sm-10">
+            <div class="form-group">
+            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+        </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Tulis karya Anda</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="konten"></textarea>
+        </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">Unggah karya</button>
+    </div>
+  </div>
+</form>
           <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
           <script src="<?php echo base_url(); ?>assets/js/vendor/popper.min.js"></script>
           <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>

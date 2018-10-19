@@ -1,6 +1,6 @@
 <?php
 
-//session_start(); 
+
 
 Class User_Authentication extends CI_Controller {
 
@@ -111,6 +111,18 @@ $sess_array = array(
 $this->session->unset_userdata('logged_in', $sess_array);
 $data['message_display'] = 'Successfully Logout';
 $this->load->view('login', $data);
+}
+public function dasbor() {
+            $this->load->helper('url');
+
+            $this->load->view('dasbor');
+}
+public function tulis()
+{
+            $this->load->helper('url');
+
+            $this->load->view('tulis');
+            
 }
 
 public function createPassword($passwd)
