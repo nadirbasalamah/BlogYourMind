@@ -7,6 +7,7 @@ $email = ($this->session->userdata['logged_in']['email']);
 } else {
 header("location: " . base_url('index.php/user_authentication/'));
 }
+
 ?>
   <head>
     <meta charset="utf-8">
@@ -61,7 +62,7 @@ header("location: " . base_url('index.php/user_authentication/'));
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">Tulis karya Anda</h1>
           </div>
-    <form action="#" method="post">
+    <form action="<?php echo base_url('index.php/user_authentication/unggahKarya'); ?>" method="post" enctype="multipart/form-data">
   <div class="form-group row">
     <label for="judul" class="col-sm-2 col-form-label">Judul karya</label>
     <div class="col-sm-10">
@@ -94,10 +95,10 @@ header("location: " . base_url('index.php/user_authentication/'));
     </div>
   </fieldset>
   <div class="form-group row">
-    <div class="col-sm-2">Masukkan gambar sampul</div>
+    <div class="col-sm-2">Masukkan gambar sampul (format file : gif,png,jpg,svg)</div>
         <div class="col-sm-10">
             <div class="form-group">
-            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            <input type="file" class="form-control-file" id="gambar" name="gambarsampul">
         </div>
     </div>
   </div>
@@ -111,7 +112,7 @@ header("location: " . base_url('index.php/user_authentication/'));
   </div>
   <div class="form-group row">
     <div class="col-sm-10">
-      <button type="submit" class="btn btn-primary">Unggah karya</button>
+      <button type="submit" name="upload" class="btn btn-primary">Unggah karya</button>
     </div>
   </div>
 </form>

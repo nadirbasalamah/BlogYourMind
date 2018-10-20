@@ -77,7 +77,7 @@
     <h3>Baca Puisi Terbaik</h3>
     <?php foreach ($puisi as $post): ?>
     <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="<?php echo base_url(); ?>assets/default.svg" alt="Card image cap">
+    <img class="card-img-top" src="<?php echo "data:image/jpeg;base64," . base64_encode($post->gambar); ?>">
       <div class="card-body">
         <h5 class="card-title"><?php echo $post->judul; ?></h5>
         <p class="card-text"><?php echo $post->konten; ?></p>

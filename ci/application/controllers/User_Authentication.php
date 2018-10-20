@@ -124,25 +124,63 @@ public function tulis()
             $this->load->view('tulis');
 
             $this->load->model('Postingan_model');
+}
+public function unggahKarya() {
+    $this->load->library('form_validation');
+    $this->load->library('upload');
+    //upload gambar
+    $files = $_FILES;
+        $_FILES['gambarsampul']['name']		= $files['gambarsampul']['name'];
+        $_FILES['gambarsampul']['type']		= $files['gambarsampul']['type'];
+        $_FILES['gambarsampul']['tmp_name']	= $files['gambarsampul']['tmp_name'];
+        $_FILES['gambarsampul']['error']	= $files['gambarsampul']['error'];
+        $_FILES['gambarsampul']['size']		= $files['gambarsampul']['size'];    
+ 
+	    $this->upload->initialize($this->set_upload_options());
+	    $this->upload->do_upload();
+ 
+	        $upload_data 	= $this->upload->data();
+		    $file_name 	=   $upload_data['file_name'];
+		    $file_type 	=   $upload_data['file_type'];
+		    $file_size 	=   $upload_data['file_size'];
+ 
+	    // Output control
+			//$data['getfiledata_file_name'] = $file_name;
+			//$data['getfiledata_file_type'] = $file_type;
+            //$data['getfiledata_file_size'] = $file_size;
+    //upload postingan
+    $data = array(
+        'id_postingan' => 0,
+        'penulis' => $this->session->userdata['logged_in']['nama'],
+        'gambar' => addslashes($upload_data['file_name']),
+        'judul' => $this->input->post('judul'),
+        'konten' => $this->input->post('konten'),
+        'kategori' => $this->input->post('gridRadios')
+    );
+    $this->load->helper('url');
+    
+    $this->load->model('Postingan_model');
 
-            $data = array(
-                'id' => 0,
-                'gambar' => 'test',
-                'judul' => $this->input->post('judul'),
-                'konten' => $this->input->post('konten'),
-                'kategori' => $this->input->post('gridRadios')
-            );
+    $this->Postingan_model->unggah_karya($data);
 
-            $this->Postingan_model->unggah_karya($data);
+    redirect(base_url('index.php/user_authentication/dasbor'),'refresh');
+}
+private function set_upload_options(){   
+	//  upload an image options
+    $config = array();
+    $config['upload_path'] = './users_img/';
+    $config['allowed_types'] = 'gif|jpg|png|svg';
+    $config['max_size']      = '0';
+    $config['overwrite']     = FALSE;
 
-            redirect(base_url('index.php/user_authentication/dasbor'),'refresh');
-            
+    return $config;
 }
 
 public function createPassword($passwd)
 {
     return hash("sha256", $passwd);
 }
+
 
 }
 
