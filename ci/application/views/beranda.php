@@ -15,9 +15,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="<?php echo base_url(); ?>">Beranda <span class="sr-only">(current)</span></a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('index.php/postingan/cerpen'); ?>">Cerpen</a>
           </li>
@@ -53,7 +50,7 @@
     <h3>Baca Cerpen Terbaik</h3>
     <?php foreach ($cerpen as $post): ?>
     <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="<?php echo base_url(); ?>assets/default.svg" alt="Card image cap">
+    <img class="card-img-top" src="<?php echo "data:image/jpeg;base64," . base64_encode($post->gambar); ?>" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title"><?php echo $post->judul; ?></h5>
         <p class="card-text"><?php echo $post->konten; ?></p>
@@ -65,7 +62,7 @@
     <h3>Baca Novel Terbaik</h3>
     <?php foreach ($novel as $post): ?>
     <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="<?php echo base_url(); ?>assets/default.svg" alt="Card image cap">
+    <img class="card-img-top" src="<?php echo "data:image/jpeg;base64," . base64_encode($post->gambar); ?>" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title"><?php echo $post->judul; ?></h5>
         <p class="card-text"><?php echo $post->konten; ?></p>

@@ -3,11 +3,9 @@
 <?php
 if (isset($this->session->userdata['logged_in'])) {
 $nama = ($this->session->userdata['logged_in']['nama']);
-$email = ($this->session->userdata['logged_in']['email']);
 } else {
 header("location: " . base_url('index.php/user_authentication/'));
 }
-
 ?>
   <head>
     <meta charset="utf-8">
@@ -62,7 +60,8 @@ header("location: " . base_url('index.php/user_authentication/'));
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">Tulis karya Anda</h1>
           </div>
-    <form action="<?php echo base_url('index.php/user_authentication/unggahKarya'); ?>" method="post" enctype="multipart/form-data">
+    <!--<form action="<?php //echo base_url('index.php/user_authentication/unggahKarya'); ?>" method="post" <?php //echo form_open_multipart(base_url('index.php/user_authentication/unggahKarya'))?>-->
+    <?php echo form_open_multipart(base_url('index.php/user_authentication/unggahKarya')) ?>
   <div class="form-group row">
     <label for="judul" class="col-sm-2 col-form-label">Judul karya</label>
     <div class="col-sm-10">

@@ -15,13 +15,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="<?php echo base_url(); ?>">Beranda</a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('index.php/postingan/cerpen'); ?>">Cerpen</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link" href="<?php echo base_url('index.php/postingan/novel'); ?>">Novel <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">

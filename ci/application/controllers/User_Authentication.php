@@ -86,7 +86,7 @@ $result = $this->Pengguna_model->read_user_information($username);
 if ($result != false) {
 $session_data = array(
 'nama' => $result[0]->nama,
-'email' => $result[0]->email,
+'id' => $result[0]->id,
 );
 // Add user data in session
 $this->session->set_userdata('logged_in', $session_data);
@@ -126,33 +126,29 @@ public function tulis()
             $this->load->model('Postingan_model');
 }
 public function unggahKarya() {
+    //$config = array(
+    //    'upload_path' => './users_img/',
+    //    'allowed_types' => 'gif|jpg|png|svg',
+    //    'overwrite' => FALSE
+    //);
     $this->load->library('form_validation');
-    $this->load->library('upload');
     //upload gambar
-    $files = $_FILES;
-        $_FILES['gambarsampul']['name']		= $files['gambarsampul']['name'];
-        $_FILES['gambarsampul']['type']		= $files['gambarsampul']['type'];
-        $_FILES['gambarsampul']['tmp_name']	= $files['gambarsampul']['tmp_name'];
-        $_FILES['gambarsampul']['error']	= $files['gambarsampul']['error'];
-        $_FILES['gambarsampul']['size']		= $files['gambarsampul']['size'];    
- 
-	    $this->upload->initialize($this->set_upload_options());
-	    $this->upload->do_upload();
- 
-	        $upload_data 	= $this->upload->data();
-		    $file_name 	=   $upload_data['file_name'];
-		    $file_type 	=   $upload_data['file_type'];
-		    $file_size 	=   $upload_data['file_size'];
- 
-	    // Output control
-			//$data['getfiledata_file_name'] = $file_name;
-			//$data['getfiledata_file_type'] = $file_type;
-            //$data['getfiledata_file_size'] = $file_size;
-    //upload postingan
+    $new_name = time().$_FILES["gambarsampul"]['name'];
+            $config['upload_path'] = FCPATH ."./users_img/";
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['file_name'] = $new_name;
+            $this->load->library('upload', $config); //Loads the Uploader Library
+            $this->upload->initialize($config);        
+            if ( ! $this->upload->do_upload('gambarsampul'))  {}
+            else
+            { 
+            $data = $this->upload->data();
+            }
+        //upload postingan
     $data = array(
         'id_postingan' => 0,
         'penulis' => $this->session->userdata['logged_in']['nama'],
-        'gambar' => addslashes($upload_data['file_name']),
+        'gambar' => addslashes($new_name),
         'judul' => $this->input->post('judul'),
         'konten' => $this->input->post('konten'),
         'kategori' => $this->input->post('gridRadios')
@@ -162,19 +158,10 @@ public function unggahKarya() {
     $this->load->model('Postingan_model');
 
     $this->Postingan_model->unggah_karya($data);
-
+    
     redirect(base_url('index.php/user_authentication/dasbor'),'refresh');
 }
-private function set_upload_options(){   
-	//  upload an image options
-    $config = array();
-    $config['upload_path'] = './users_img/';
-    $config['allowed_types'] = 'gif|jpg|png|svg';
-    $config['max_size']      = '0';
-    $config['overwrite']     = FALSE;
 
-    return $config;
-}
 
 public function createPassword($passwd)
 {

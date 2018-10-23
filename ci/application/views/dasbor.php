@@ -3,7 +3,6 @@
 <?php
 if (isset($this->session->userdata['logged_in'])) {
 $nama = ($this->session->userdata['logged_in']['nama']);
-$email = ($this->session->userdata['logged_in']['email']);
 } else {
 header("location: " . base_url('index.php/user_authentication/'));
 }
@@ -64,9 +63,6 @@ header("location: " . base_url('index.php/user_authentication/'));
               <div class="btn-group mr-2">
               <a href="<?php echo base_url('index.php/user_authentication/tulis'); ?>">
                 <button class="btn btn-sm btn-outline-secondary">Tulis karya</button>
-              </a>
-              <a href="#">
-                <button class="btn btn-sm btn-outline-secondary">Lihat karya</button>
               </a>
               </div>
             </div>
