@@ -3,6 +3,7 @@
 <?php
 if (isset($this->session->userdata['logged_in'])) {
 $nama = ($this->session->userdata['logged_in']['nama']);
+$passwd = ($this->session->userdata['logged_in']['password']);
 } else {
 header("location: " . base_url('index.php/user_authentication/'));
 }
@@ -61,7 +62,17 @@ header("location: " . base_url('index.php/user_authentication/'));
             <h1 class="h2">Profil Anda</h1>
           </div>
           <!--form profil-->
-          
+    <form action="<?php echo base_url('index.php/user_authentication/editProfil'); ?>" method="post">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Ganti nama pengguna</label>
+    <input type="text" name="nama" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ganti nama pengguna dengan nama yang baru" value=<?php echo $nama?>>
+  </div>
+  <div class="form-group">
+        <label for="exampleInputPassword1">Ganti password</label>
+        <input type="password"  name="passwd" class="form-control" id="exampleInputPassword1" placeholder="Ganti password dengan password yang baru" value=<?php echo $passwd?>>
+  </div>
+        <button type="submit" class="btn btn-primary">Ubah</button>
+    </form>
           <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
           <script src="<?php echo base_url(); ?>assets/js/vendor/popper.min.js"></script>
           <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>

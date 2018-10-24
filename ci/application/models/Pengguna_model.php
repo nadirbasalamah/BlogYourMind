@@ -48,5 +48,12 @@
             return false;
             }
             }
+            public function update_profile($data)
+            {
+                $this->db->set('nama',$data['nama']);
+                $this->db->set('password',$data['password']);
+                $this->db->where('id',$data['id']);
+                $this->db->update('pengguna');
+            }
     }
 ?>

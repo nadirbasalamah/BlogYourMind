@@ -29,6 +29,24 @@ $this->load->view('login');
 public function user_registration_show() {
 $this->load->view('daftar');
 }
+function decrypt($string)
+{
+  $output = false;
+ 
+  $encrypt_method = "AES-256-CBC";
+  $secret_key = 'This is my secret key';
+  $secret_iv = 'This is my secret iv';
+ 
+  
+  $key = hash('sha256', $secret_key);
+ 
+  
+  $iv = substr(hash('sha256', $secret_iv), 0, 16);
+  
+  $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
+  
+  return $output;
+}
 
 // Validate and store registration data in database
 public function new_user_registration() {
@@ -61,6 +79,7 @@ $this->load->view('daftar', $data);
 }
 }
 
+
 // Check for user login process
 public function user_login_process() {
 
@@ -87,6 +106,7 @@ if ($result != false) {
 $session_data = array(
 'nama' => $result[0]->nama,
 'id' => $result[0]->id,
+'password' => $this->decrypt($result[0]->password)
 );
 // Add user data in session
 $this->session->set_userdata('logged_in', $session_data);
@@ -112,6 +132,8 @@ $this->session->unset_userdata('logged_in', $sess_array);
 $data['message_display'] = 'Successfully Logout';
 $this->load->view('login', $data);
 }
+
+
 public function dasbor() {
             $this->load->helper('url');
 
@@ -168,13 +190,33 @@ public function unggahKarya() {
     
     redirect(base_url('index.php/user_authentication/dasbor'),'refresh');
 }
-
-
 public function createPassword($passwd)
 {
-    return hash("sha256", $passwd);
-}
+    $output = false;
+ 
+    $encrypt_method = "AES-256-CBC";
+    $secret_key = 'This is my secret key';
+    $secret_iv = 'This is my secret iv'; 
+    $key = hash('sha256', $secret_key);
+    $iv = substr(hash('sha256', $secret_iv), 0, 16);
 
+    $output = openssl_encrypt($passwd, $encrypt_method, $key, 0, $iv);
+    $output = base64_encode($output);
+
+    return $output;
+}
+public function editProfil()
+{
+    $this->load->helper('url');
+    $this->load->model('Pengguna_model');
+    $data = array(
+        'nama' => $this->input->post('nama'),
+        'password' => $this->createPassword($this->input->post('passwd')),
+        'id' => $this->session->userdata['logged_in']['id']
+    );
+    $this->Pengguna_model->update_profile($data);
+    redirect(base_url('index.php/user_authentication/dasbor'),'refresh');
+}
 
 }
 
