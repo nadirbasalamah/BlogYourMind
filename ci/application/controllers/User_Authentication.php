@@ -125,6 +125,12 @@ public function tulis()
 
             $this->load->model('Postingan_model');
 }
+public function profil()
+{
+            $this->load->helper('url');
+
+            $this->load->view('profil');
+}
 public function unggahKarya() {
     //$config = array(
     //    'upload_path' => './users_img/',
@@ -142,13 +148,14 @@ public function unggahKarya() {
             if ( ! $this->upload->do_upload('gambarsampul'))  {}
             else
             { 
-            $data = $this->upload->data();
+            $upload_data = $this->upload->data();
+            $file_loc = $upload_data['file_name'];
             }
         //upload postingan
     $data = array(
         'id_postingan' => 0,
         'penulis' => $this->session->userdata['logged_in']['nama'],
-        'gambar' => addslashes($new_name),
+        'gambar' => $file_loc,
         'judul' => $this->input->post('judul'),
         'konten' => $this->input->post('konten'),
         'kategori' => $this->input->post('gridRadios')

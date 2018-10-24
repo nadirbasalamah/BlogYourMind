@@ -42,7 +42,7 @@ header("location: " . base_url('index.php/user_authentication/'));
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?php echo base_url('index.php/user_authentication/profil'); ?>">
                   <span data-feather="users"></span>
                   Sunting profil
                 </a>

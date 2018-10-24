@@ -30,7 +30,7 @@ header("location: " . base_url('index.php/user_authentication/'));
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="<?php echo base_url('index.php/user_authentication/dasbor'); ?>">
+                <a class="nav-link" href="<?php echo base_url('index.php/user_authentication/dasbor'); ?>">
                   <span data-feather="home"></span>
                   Dasbor <span class="sr-only">(current)</span>
                 </a>
@@ -42,7 +42,7 @@ header("location: " . base_url('index.php/user_authentication/'));
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('index.php/user_authentication/profil'); ?>">
+                <a class="nav-link  active" href="<?php echo base_url('index.php/user_authentication/profil'); ?>">
                   <span data-feather="users"></span>
                   Sunting profil
                 </a>
@@ -58,15 +58,10 @@ header("location: " . base_url('index.php/user_authentication/'));
         </nav>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Selamat datang, <?php echo $nama; ?> ! </h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
-              <div class="btn-group mr-2">
-              <a href="<?php echo base_url('index.php/user_authentication/tulis'); ?>">
-                <button class="btn btn-sm btn-outline-secondary">Tulis karya</button>
-              </a>
-              </div>
-            </div>
+            <h1 class="h2">Profil Anda</h1>
           </div>
+          <!--form profil-->
+          
           <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
           <script src="<?php echo base_url(); ?>assets/js/vendor/popper.min.js"></script>
           <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
