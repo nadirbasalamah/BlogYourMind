@@ -37,5 +37,19 @@
             $this->load->database();
             $this->db->insert('postingan', $data);
         }
+        public function get_post($id)
+        {
+            $this->load->database();
+            $this->db->where('id_postingan', $id);
+            $query = $this->db->get('postingan');
+            return $query->result();
+        }
+        public function get_pengguna_posts($penulis)
+        {
+            $this->load->database();
+            $this->db->where('penulis', $penulis);
+            $query = $this->db->get('postingan');
+            return $query->result();
+        }
     }
 ?>

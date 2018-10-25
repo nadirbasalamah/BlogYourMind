@@ -43,51 +43,15 @@
     </nav>
     <main role="main" class="container">
       <div class="starter-template">
-      <h1>Selamat datang di BlogYourMind</h1>
+      <?php foreach ($postingan as $post): ?>
+      <h1><?php echo $post->judul; ?></h1>
+      <img class="rounded mx-auto d-block" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Cover image">
       <br>
-      <h3>Tempat dimana Anda berekspresi dengan kata-kata</h3>
+      <h5>Oleh : <?php echo $post->penulis; ?></h5>
+      <h6>Kategori : <?php echo $post->kategori?></h6>
       <br>
-    <h3>Baca Cerpen Terbaik</h3>
-    <div class="row">
-    <?php foreach ($cerpen as $post): ?>
-    <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><?php echo $post->judul; ?></h5>
-        <p class="card-text"><?php echo $post->konten; ?></p>
-        <a href="<?php echo base_url('index.php/postingan/baca/') . $post->id_postingan; ?>" class="btn btn-primary">Baca</a>
-      </div>
-      </div>
-      <?php endforeach; ?>    
-      </div>
-    <br>
-    <h3>Baca Novel Terbaik</h3>
-    <div class="row">
-    <?php foreach ($novel as $post): ?>
-    <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><?php echo $post->judul; ?></h5>
-        <p class="card-text"><?php echo $post->konten; ?></p>
-        <a href="<?php echo base_url('index.php/postingan/baca/') . $post->id_postingan; ?>" class="btn btn-primary">Baca</a>
-      </div>
-      </div>
-    <?php endforeach; ?>
-    </div>
-    <br>
-    <h3>Baca Puisi Terbaik</h3>
-    <div class="row">
-    <?php foreach ($puisi as $post): ?>
-    <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="<?php echo  base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><?php echo $post->judul; ?></h5>
-        <p class="card-text"><?php echo $post->konten; ?></p>
-        <a href="<?php echo base_url('index.php/postingan/baca/') . $post->id_postingan; ?>" class="btn btn-primary">Baca</a>
-      </div>
-      </div>
-    <?php endforeach; ?>
-    </div>
+      <p><?php echo $post->konten; ?></p>
+      <?php endforeach; ?>
       </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>

@@ -42,16 +42,18 @@
       <br>
       <h3>Daftar puisi</h3>
       <br>
+      <div class="row">
     <?php foreach ($puisi as $post): ?>
     <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title"><?php echo $post->judul; ?></h5>
         <p class="card-text"><?php echo $post->konten; ?></p>
-        <a href="#" class="btn btn-primary">Baca</a>
+        <a href="<?php echo base_url('index.php/postingan/baca/') . $post->id_postingan; ?>" class="btn btn-primary">Baca</a>
       </div>
       </div>
     <?php endforeach; ?>
+    </div>
       </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>

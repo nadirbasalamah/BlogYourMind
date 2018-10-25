@@ -62,5 +62,13 @@
             $data['hasil'] = $hasil;
             $this->load->view('hasil', $data);
         }
+        public function baca($id)
+        {
+            $this->load->helper('url');
+            $this->load->model('Postingan_model');
+            $postingan = $this->Postingan_model->get_post($id);
+            $data['postingan'] = $postingan;
+            $this->load->view('baca',$data);
+        }
     }
 ?>
