@@ -2,7 +2,7 @@
 
 
 
-Class User_Authentication extends CI_Controller {
+Class Aktivitas_Pengguna extends CI_Controller {
 
 public function __construct() {
 parent::__construct();
@@ -188,7 +188,7 @@ public function unggahKarya() {
 
     $this->Postingan_model->unggah_karya($data);
     
-    redirect(base_url('index.php/user_authentication/dasbor'),'refresh');
+    redirect(base_url('index.php/Aktivitas_Pengguna/dasbor'),'refresh');
 }
 public function createPassword($passwd)
 {
@@ -215,7 +215,20 @@ public function editProfil()
         'id' => $this->session->userdata['logged_in']['id']
     );
     $this->Pengguna_model->update_profile($data);
-    redirect(base_url('index.php/user_authentication/dasbor'),'refresh');
+    redirect(base_url('index.php/Aktivitas_Pengguna/dasbor'),'refresh');
+}
+public function lihatPostingan()
+{
+    $this->load->helper('url');
+    $this->load->model('Postingan_model');
+    $penulis = $this->session->userdata['logged_in']['nama'];
+    $cerpen = $this->Postingan_model->get_pengguna_posts_cerpen($penulis);
+    $novel = $this->Postingan_model->get_pengguna_posts_novel($penulis);
+    $puisi = $this->Postingan_model->get_pengguna_posts_puisi($penulis);
+    $data['cerpen'] = $cerpen;
+    $data['novel'] = $novel;
+    $data['puisi'] = $puisi;
+    $this->load->view('daftar_postingan',$data);
 }
 
 }

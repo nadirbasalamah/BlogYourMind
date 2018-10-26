@@ -4,7 +4,7 @@
 if (isset($this->session->userdata['logged_in'])) {
 $nama = ($this->session->userdata['logged_in']['nama']);
 } else {
-header("location: " . base_url('index.php/user_authentication/'));
+header("location: " . base_url('index.php/Aktivitas_Pengguna/'));
 }
 ?>
   <head>
@@ -19,7 +19,7 @@ header("location: " . base_url('index.php/user_authentication/'));
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">BlogYourMind</a>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="<?php echo base_url('index.php/user_authentication/logout'); ?>">Logout</a>
+          <a class="nav-link" href="<?php echo base_url('index.php/Aktivitas_Pengguna/logout'); ?>">Logout</a>
         </li>
       </ul>
     </nav>
@@ -30,19 +30,19 @@ header("location: " . base_url('index.php/user_authentication/'));
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="<?php echo base_url('index.php/user_authentication/dasbor'); ?>">
+                <a class="nav-link active" href="<?php echo base_url('index.php/Aktivitas_Pengguna/dasbor'); ?>">
                   <span data-feather="home"></span>
                   Dasbor <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?php echo base_url('index.php/Aktivitas_Pengguna/lihatPostingan'); ?>">
                   <span data-feather="file"></span>
                   Daftar karya
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('index.php/user_authentication/profil'); ?>">
+                <a class="nav-link" href="<?php echo base_url('index.php/Aktivitas_Pengguna/profil'); ?>">
                   <span data-feather="users"></span>
                   Sunting profil
                 </a>
@@ -61,7 +61,7 @@ header("location: " . base_url('index.php/user_authentication/'));
             <h1 class="h2">Selamat datang, <?php echo $nama; ?> ! </h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
-              <a href="<?php echo base_url('index.php/user_authentication/tulis'); ?>">
+              <a href="<?php echo base_url('index.php/Aktivitas_Pengguna/tulis'); ?>">
                 <button class="btn btn-sm btn-outline-secondary">Tulis karya</button>
               </a>
               </div>

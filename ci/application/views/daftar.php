@@ -9,7 +9,7 @@
     <title>Registrasi akun</title>
   </head>
   <body class="text-center">
-    <form class="form-signin" action="<?php echo base_url('index.php/user_authentication/new_user_registration'); ?>" method="post">
+    <form class="form-signin" action="<?php echo base_url('index.php/Aktivitas_Pengguna/new_user_registration'); ?>" method="post">
       <h1 class="h3 mb-3 font-weight-normal">Registrasi akun</h1>
       <label for="inputEmail" class="sr-only">Nama pengguna</label>
       <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Nama pengguna" required autofocus>

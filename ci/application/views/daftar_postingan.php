@@ -3,7 +3,6 @@
 <?php
 if (isset($this->session->userdata['logged_in'])) {
 $nama = ($this->session->userdata['logged_in']['nama']);
-$passwd = ($this->session->userdata['logged_in']['password']);
 } else {
 header("location: " . base_url('index.php/Aktivitas_Pengguna/'));
 }
@@ -37,13 +36,13 @@ header("location: " . base_url('index.php/Aktivitas_Pengguna/'));
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('index.php/Aktivitas_Pengguna/lihatPostingan'); ?>">
+                <a class="nav-link active" href="<?php echo base_url('index.php/Aktivitas_Pengguna/lihatPostingan'); ?>">
                   <span data-feather="file"></span>
                   Daftar karya
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link  active" href="<?php echo base_url('index.php/Aktivitas_Pengguna/profil'); ?>">
+                <a class="nav-link" href="<?php echo base_url('index.php/Aktivitas_Pengguna/profil'); ?>">
                   <span data-feather="users"></span>
                   Sunting profil
                 </a>
@@ -59,20 +58,47 @@ header("location: " . base_url('index.php/Aktivitas_Pengguna/'));
         </nav>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Profil Anda</h1>
+            <h1 class="h2">Daftar karya Anda</h1>
           </div>
-          <!--form profil-->
-    <form action="<?php echo base_url('index.php/Aktivitas_Pengguna/editProfil'); ?>" method="post">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Ganti nama pengguna</label>
-    <input type="text" name="nama" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ganti nama pengguna dengan nama yang baru" value=<?php echo $nama?>>
-  </div>
-  <div class="form-group">
-        <label for="exampleInputPassword1">Ganti password</label>
-        <input type="password"  name="passwd" class="form-control" id="exampleInputPassword1" placeholder="Ganti password dengan password yang baru" value=<?php echo $passwd?>>
-  </div>
-        <button type="submit" class="btn btn-primary">Ubah</button>
-    </form>
+          <h3>Cerpen</h3>
+            <div class="row">
+            <?php foreach ($cerpen as $post): ?>
+            <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title"><?php echo $post->judul; ?></h5>
+            <p class="card-text">Oleh : <?php echo $post->penulis; ?></p>
+            <a href="#" class="btn btn-primary">Baca</a>
+            </div> <!--konten-->
+            </div>
+            <?php endforeach; ?>
+            </div> <!--row-->
+            <h3>Novel</h3>
+            <div class="row">
+            <?php foreach ($novel as $post): ?>
+            <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title"><?php echo $post->judul; ?></h5>
+            <p class="card-text">Oleh : <?php echo $post->penulis; ?></p>
+            <a href="#" class="btn btn-primary">Baca</a>
+            </div> <!--konten-->
+            </div>
+            <?php endforeach; ?>
+            </div> <!--row-->
+            <h3>Puisi</h3>
+            <div class="row">
+            <?php foreach ($puisi as $post): ?>
+            <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title"><?php echo $post->judul; ?></h5>
+            <p class="card-text">Oleh : <?php echo $post->penulis; ?></p>
+            <a href="#" class="btn btn-primary">Baca</a>
+            </div> <!--konten-->
+            </div>
+            <?php endforeach; ?>
+            </div> <!--row-->
           <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
           <script src="<?php echo base_url(); ?>assets/js/vendor/popper.min.js"></script>
           <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
