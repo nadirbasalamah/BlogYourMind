@@ -4,7 +4,7 @@
 if (isset($this->session->userdata['logged_in'])) {
 $nama = ($this->session->userdata['logged_in']['nama']);
 } else {
-header("location: " . base_url('index.php/Aktivitas_Pengguna/'));
+header("location: " . base_url('index.php/Pengguna/'));
 }
 ?>
   <head>
@@ -19,7 +19,7 @@ header("location: " . base_url('index.php/Aktivitas_Pengguna/'));
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">BlogYourMind</a>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="<?php echo base_url('index.php/Aktivitas_Pengguna/logout'); ?>">Logout</a>
+          <a class="nav-link" href="<?php echo base_url('index.php/Pengguna/logout'); ?>">Logout</a>
         </li>
       </ul>
     </nav>
@@ -30,19 +30,19 @@ header("location: " . base_url('index.php/Aktivitas_Pengguna/'));
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="<?php echo base_url('index.php/Aktivitas_Pengguna/dasbor'); ?>">
+                <a class="nav-link active" href="<?php echo base_url('index.php/Pengguna/dasbor'); ?>">
                   <span data-feather="home"></span>
                   Dasbor 
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('index.php/Aktivitas_Pengguna/lihatPostingan'); ?>">
+                <a class="nav-link" href="<?php echo base_url('index.php/Pengguna/lihatPostingan'); ?>">
                   <span data-feather="file"></span>
                   Daftar karya 
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('index.php/Aktivitas_Pengguna/profil'); ?>">
+                <a class="nav-link" href="<?php echo base_url('index.php/Pengguna/profil'); ?>">
                   <span data-feather="users"></span>
                   Sunting profil
                 </a>
@@ -60,8 +60,8 @@ header("location: " . base_url('index.php/Aktivitas_Pengguna/'));
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">Tulis karya Anda</h1>
           </div>
-    <!--<form action="<?php //echo base_url('index.php/Aktivitas_Pengguna/unggahKarya'); ?>" method="post" <?php //echo form_open_multipart(base_url('index.php/Aktivitas_Pengguna/unggahKarya'))?>-->
-    <?php echo form_open_multipart(base_url('index.php/Aktivitas_Pengguna/unggahKarya')) ?>
+    <!--<form action="<?php //echo base_url('index.php/Pengguna/unggahKarya'); ?>" method="post" <?php //echo form_open_multipart(base_url('index.php/Pengguna/unggahKarya'))?>-->
+    <?php echo form_open_multipart(base_url('index.php/Pengguna/unggahKarya')) ?>
   <div class="form-group row">
     <label for="judul" class="col-sm-2 col-form-label">Judul karya</label>
     <div class="col-sm-10">

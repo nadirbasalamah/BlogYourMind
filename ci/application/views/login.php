@@ -9,7 +9,7 @@
     <title>Login akun</title>
   </head>
   <body class="text-center">
-    <form class="form-signin" action="<?php echo base_url('index.php/Aktivitas_Pengguna/user_login_process'); ?>" method="post">
+    <form class="form-signin" action="<?php echo base_url('index.php/Pengguna/user_login_process'); ?>" method="post">
       <h1 class="h3 mb-3 font-weight-normal">Login dengan menggunakan akun anda</h1>
       <label for="inputEmail" class="sr-only">Nama pengguna</label>
       <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Nama pengguna" required autofocus>

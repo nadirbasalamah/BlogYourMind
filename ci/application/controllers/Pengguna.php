@@ -2,7 +2,7 @@
 
 
 
-Class Aktivitas_Pengguna extends CI_Controller {
+Class Pengguna extends CI_Controller {
 
 public function __construct() {
 parent::__construct();
@@ -188,7 +188,7 @@ public function unggahKarya() {
 
     $this->Postingan_model->unggah_karya($data);
     
-    redirect(base_url('index.php/Aktivitas_Pengguna/dasbor'),'refresh');
+    redirect(base_url('index.php/Pengguna/dasbor'),'refresh');
 }
 public function createPassword($passwd)
 {
@@ -215,7 +215,7 @@ public function editProfil()
         'id' => $this->session->userdata['logged_in']['id']
     );
     $this->Pengguna_model->update_profile($data);
-    redirect(base_url('index.php/Aktivitas_Pengguna/dasbor'),'refresh');
+    redirect(base_url('index.php/Pengguna/dasbor'),'refresh');
 }
 public function lihatPostingan()
 {
