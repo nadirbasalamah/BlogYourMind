@@ -55,5 +55,12 @@
                 $this->db->where('id',$data['id']);
                 $this->db->update('pengguna');
             }
+            public function selectProfile($id)
+            {
+                $this->db->where('id',$id);
+                $this->db->select('nama');
+                $query = $this->db->get('pengguna');
+                return $query->result();
+            }
     }
 ?>

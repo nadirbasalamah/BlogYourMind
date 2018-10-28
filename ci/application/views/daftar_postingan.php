@@ -68,7 +68,7 @@ header("location: " . base_url('index.php/Pengguna/'));
             <div class="card-body">
             <h5 class="card-title"><?php echo $post->judul; ?></h5>
             <p class="card-text">Oleh : <?php echo $post->penulis; ?></p>
-            <a href="#" class="btn btn-primary">Baca</a>
+            <a href="<?php echo base_url('index.php/Pengguna/bacaPostingan/') . $post->id_postingan; ?>" class="btn btn-primary">Baca</a>
             </div> <!--konten-->
             </div>
             <?php endforeach; ?>
@@ -81,7 +81,7 @@ header("location: " . base_url('index.php/Pengguna/'));
             <div class="card-body">
             <h5 class="card-title"><?php echo $post->judul; ?></h5>
             <p class="card-text">Oleh : <?php echo $post->penulis; ?></p>
-            <a href="#" class="btn btn-primary">Baca</a>
+            <a href="<?php echo base_url('index.php/Pengguna/bacaPostingan/') . $post->id_postingan; ?>" class="btn btn-primary">Baca</a>
             </div> <!--konten-->
             </div>
             <?php endforeach; ?>
@@ -94,7 +94,7 @@ header("location: " . base_url('index.php/Pengguna/'));
             <div class="card-body">
             <h5 class="card-title"><?php echo $post->judul; ?></h5>
             <p class="card-text">Oleh : <?php echo $post->penulis; ?></p>
-            <a href="#" class="btn btn-primary">Baca</a>
+            <a href="<?php echo base_url('index.php/Pengguna/bacaPostingan/') . $post->id_postingan; ?>" class="btn btn-primary">Baca</a>
             </div> <!--konten-->
             </div>
             <?php endforeach; ?>

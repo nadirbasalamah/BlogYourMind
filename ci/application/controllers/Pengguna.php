@@ -177,6 +177,7 @@ public function unggahKarya() {
     $data = array(
         'id_postingan' => 0,
         'penulis' => $this->session->userdata['logged_in']['nama'],
+        'id_penulis' => $this->session->userdata['logged_in']['id'],
         'gambar' => $file_loc,
         'judul' => $this->input->post('judul'),
         'konten' => $this->input->post('konten'),
@@ -230,7 +231,77 @@ public function lihatPostingan()
     $data['puisi'] = $puisi;
     $this->load->view('daftar_postingan',$data);
 }
+public function explore()
+{
+            $this->load->helper('url');
+            $this->load->model('Postingan_model');
+        
+            $cerpen = $this->Postingan_model->get_posts_cerpen();
+            $novel = $this->Postingan_model->get_posts_novel();
+            $puisi = $this->Postingan_model->get_posts_puisi();
+            $data['cerpen'] = $cerpen;
+            $data['novel'] = $novel;
+            $data['puisi'] = $puisi;
 
+            $this->load->view('explore', $data);
+}
+public function bacaPostingan($id)
+{
+            $this->load->helper('url');
+            $this->load->model('Postingan_model');
+            $postingan = $this->Postingan_model->get_post($id);
+            $data['postingan'] = $postingan;
+            $this->load->view('baca_postingan',$data);
+}
+public function exploreCerpen()
+{
+            $this->load->helper('url');
+            $this->load->model('Postingan_model');
+            $cerpen = $this->Postingan_model->get_posts_cerpen();
+            $data['cerpen'] = $cerpen;
+            $this->load->view('explore_cerpen', $data);
+}
+public function exploreNovel()
+{
+            $this->load->helper('url');
+            $this->load->model('Postingan_model');
+            $novel = $this->Postingan_model->get_posts_novel();
+            $data['novel'] = $novel;
+            $this->load->view('explore_novel', $data);
+}
+public function explorePuisi()
+{
+            $this->load->helper('url');
+            $this->load->model('Postingan_model');
+            $puisi = $this->Postingan_model->get_posts_puisi();
+            $data['puisi'] = $puisi;
+            $this->load->view('explore_puisi', $data);
+}
+public function pencarianKarya()
+{
+            $this->load->helper('url');
+            $this->load->model('Postingan_model');
+            $judul = $this->input->post('search');
+            $hasil = $this->Postingan_model->get_posts_judul($judul);
+            $data['hasil'] = $hasil;
+            $this->load->view('hasil_pencarian', $data);
+}
+public function lihatProfil($id)
+{
+            $this->load->helper('url');
+            $this->load->model('Postingan_model');
+            $profil = $this->Pengguna_model->selectProfile($id);
+            $cerpen = $this->Postingan_model->get_posts_cerpen();
+            $novel = $this->Postingan_model->get_posts_novel();
+            $puisi = $this->Postingan_model->get_posts_puisi();
+            
+            $data['profil'] = $profil;
+            $data['cerpen'] = $cerpen;
+            $data['novel'] = $novel;
+            $data['puisi'] = $puisi;
+
+            $this->load->view('profil_pengguna',$data);
+}
 }
 
 ?>

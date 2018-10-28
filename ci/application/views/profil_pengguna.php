@@ -47,16 +47,51 @@ header("location: " . base_url('index.php/Pengguna/'));
     </nav>
     <main role="main" class="container">
       <div class="starter-template">
-      <a class="btn btn-primary" href="#" role="button">Tambahkan ke favorit</a>
-      <?php foreach ($postingan as $post): ?>
-      <h1><?php echo $post->judul; ?></h1>
-      <img class="rounded mx-auto d-block" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Cover image">
-      <br>
-      <h5>Oleh : <a href="<?php echo base_url('index.php/Pengguna/lihatProfil/') . $post->id_penulis;?> "><?php echo $post->penulis; ?></a></h5>
-      <h6>Kategori : <?php echo $post->kategori?></h6>
-      <br>
-      <p><?php echo $post->konten; ?></p>
+      <?php foreach ($profil as $post): ?>
+      <h1>Profil : <?php echo $post->nama?></h1>
       <?php endforeach; ?>
+      <h2>Daftar karya</h2>
+      <h3>Cerpen</h3>
+      <div class="row">
+    <?php foreach ($cerpen as $post): ?>
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $post->judul; ?></h5>
+        <p class="card-text">Oleh : <?php echo $post->penulis; ?></p>
+        <a href="<?php echo base_url('index.php/Pengguna/bacaPostingan/') . $post->id_postingan; ?>" class="btn btn-primary">Baca</a>
+      </div>
+      </div>
+      <?php endforeach; ?>    
+      </div>
+      <br/>
+      <h3>Novel</h3>
+      <div class="row">
+    <?php foreach ($novel as $post): ?>
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $post->judul; ?></h5>
+        <p class="card-text">Oleh : <?php echo $post->penulis; ?></p>
+        <a href="<?php echo base_url('index.php/Pengguna/bacaPostingan/') . $post->id_postingan; ?>" class="btn btn-primary">Baca</a>
+      </div>
+      </div>
+    <?php endforeach; ?>
+    </div>
+      <br/>
+      <h3>Puisi</h3>
+      <div class="row">
+    <?php foreach ($puisi as $post): ?>
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="<?php echo  base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $post->judul; ?></h5>
+        <p class="card-text">Oleh : <?php echo $post->penulis; ?></p>
+        <a href="<?php echo base_url('index.php/Pengguna/bacaPostingan/') . $post->id_postingan; ?>" class="btn btn-primary">Baca</a>
+      </div>
+      </div>
+    <?php endforeach; ?>
+    </div>
       </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>

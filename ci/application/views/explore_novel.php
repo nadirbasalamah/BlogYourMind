@@ -47,16 +47,23 @@ header("location: " . base_url('index.php/Pengguna/'));
     </nav>
     <main role="main" class="container">
       <div class="starter-template">
-      <a class="btn btn-primary" href="#" role="button">Tambahkan ke favorit</a>
-      <?php foreach ($postingan as $post): ?>
-      <h1><?php echo $post->judul; ?></h1>
-      <img class="rounded mx-auto d-block" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Cover image">
+      <h1>Selamat datang di BlogYourMind</h1>
       <br>
-      <h5>Oleh : <a href="<?php echo base_url('index.php/Pengguna/lihatProfil/') . $post->id_penulis;?> "><?php echo $post->penulis; ?></a></h5>
-      <h6>Kategori : <?php echo $post->kategori?></h6>
+      <h3>Jelajahi berbagai karya menarik</h3>
       <br>
-      <p><?php echo $post->konten; ?></p>
-      <?php endforeach; ?>
+    <h3>Baca Novel Terbaik</h3>
+    <div class="row">
+    <?php foreach ($novel as $post): ?>
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $post->judul; ?></h5>
+        <p class="card-text">Oleh : <?php echo $post->penulis; ?></p>
+        <a href="<?php echo base_url('index.php/Pengguna/bacaPostingan/') . $post->id_postingan; ?>" class="btn btn-primary">Baca</a>
+      </div>
+      </div>
+    <?php endforeach; ?>
+    </div>
       </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
