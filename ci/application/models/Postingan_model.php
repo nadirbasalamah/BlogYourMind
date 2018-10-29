@@ -75,6 +75,5 @@
             $query = $this->db->get('postingan');
             return $query->result();
         }
-
     }
 ?>

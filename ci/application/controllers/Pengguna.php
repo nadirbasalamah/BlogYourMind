@@ -169,7 +169,8 @@ public function unggahKarya() {
             $config['file_name'] = $new_name;
             $this->load->library('upload', $config); //Loads the Uploader Library
             $this->upload->initialize($config);        
-            if ( ! $this->upload->do_upload('gambarsampul'))  {}
+            if ( ! $this->upload->do_upload('gambarsampul'))  {
+            }
             else
             { 
             $upload_data = $this->upload->data();
@@ -210,14 +211,31 @@ public function createPassword($passwd)
 }
 public function editProfil()
 {
+    $new_name = time().$_FILES["gambar"]['name'];
+            $config['upload_path'] = FCPATH ."./users_profile/";
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['file_name'] = $new_name;
+            $this->load->library('upload', $config); //Loads the Uploader Library
+            $this->upload->initialize($config);        
+            if ( ! $this->upload->do_upload('gambar'))  {
+                $file_loc = $this->session->userdata['logged_in']['gambar'];
+            }
+            else
+            { 
+            $upload_data = $this->upload->data();
+            $file_loc = $upload_data['file_name'];
+            }
+
     $this->load->helper('url');
     $this->load->model('Pengguna_model');
     $data = array(
         'nama' => $this->input->post('nama'),
         'password' => $this->createPassword($this->input->post('passwd')),
-        'id' => $this->session->userdata['logged_in']['id']
+        'id' => $this->session->userdata['logged_in']['id'],
+        'gambar' => $file_loc
     );
     $this->Pengguna_model->update_profile($data);
+    $this->Pengguna_model->change_name($data);
     redirect(base_url('index.php/Pengguna/dasbor'),'refresh');
 }
 public function lihatPostingan()

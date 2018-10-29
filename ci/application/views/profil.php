@@ -66,7 +66,8 @@ header("location: " . base_url('index.php/Pengguna/'));
             <h1 class="h2">Profil Anda</h1>
           </div>
           <!--form profil-->
-    <form action="<?php echo base_url('index.php/Pengguna/editProfil'); ?>" method="post">
+    <!--<form action="<?php //echo base_url('index.php/Pengguna/editProfil'); ?>" method="post">-->
+    <?php echo form_open_multipart(base_url('index.php/Pengguna/editProfil')) ?>
   <div class="form-group">
     <label for="exampleInputEmail1">Ganti nama pengguna</label>
     <input type="text" name="nama" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ganti nama pengguna dengan nama yang baru" value=<?php echo $nama?>>
@@ -74,6 +75,10 @@ header("location: " . base_url('index.php/Pengguna/'));
   <div class="form-group">
         <label for="exampleInputPassword1">Ganti password</label>
         <input type="password"  name="passwd" class="form-control" id="exampleInputPassword1" placeholder="Ganti password dengan password yang baru" value=<?php echo $passwd?>>
+  </div>
+  <div class="form-group">
+  <label for="gambar">Ganti gambar profil</label>
+  <input type="file" class="form-control-file" id="gambarprofil" name="gambar" value="<?php echo $gambar;?>">
   </div>
         <button type="submit" class="btn btn-primary">Ubah</button>
     </form>

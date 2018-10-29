@@ -52,6 +52,7 @@
             {
                 $this->db->set('nama',$data['nama']);
                 $this->db->set('password',$data['password']);
+                $this->db->set('gambar',$data['gambar']);
                 $this->db->where('id',$data['id']);
                 $this->db->update('pengguna');
             }
@@ -62,6 +63,13 @@
                 $this->db->select('gambar');
                 $query = $this->db->get('pengguna');
                 return $query->result();
+            }
+            public function change_name($data) 
+            {
+            $this->load->database();
+            $this->db->set('penulis',$data['nama']);
+            $this->db->where('id_penulis',$data['id']);
+            $this->db->update('postingan');
             }
     }
 ?>
