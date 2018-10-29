@@ -59,6 +59,7 @@
             {
                 $this->db->where('id',$id);
                 $this->db->select('nama');
+                $this->db->select('gambar');
                 $query = $this->db->get('pengguna');
                 return $query->result();
             }

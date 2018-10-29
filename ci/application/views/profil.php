@@ -4,6 +4,7 @@
 if (isset($this->session->userdata['logged_in'])) {
 $nama = ($this->session->userdata['logged_in']['nama']);
 $passwd = ($this->session->userdata['logged_in']['password']);
+$gambar = ($this->session->userdata['logged_in']['gambar']);
 } else {
 header("location: " . base_url('index.php/Pengguna/'));
 }
@@ -30,6 +31,9 @@ header("location: " . base_url('index.php/Pengguna/'));
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
+            <li class="nav-item">
+            <img src="<?php echo base_url('users_profile/') . $gambar; ?>" class="rounded mx-auto d-block" alt="Display picture" width="50" height="50">
+            </li>
               <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('index.php/Pengguna/dasbor'); ?>">
                   <span data-feather="home"></span>

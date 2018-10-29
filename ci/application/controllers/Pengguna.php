@@ -67,7 +67,8 @@ $data = array(
 'password' => $this->createPassword($this->input->post('password')),
 'email' => $this->input->post('email'),
 'alamat' => $this->input->post('alamat'),
-'no_telp' => $this->input->post('notelp')
+'no_telp' => $this->input->post('notelp'),
+'gambar' => "default.png"
 );
 $result = $this->Pengguna_model->registration_insert($data);
 if ($result == TRUE) {
@@ -106,7 +107,8 @@ if ($result != false) {
 $session_data = array(
 'nama' => $result[0]->nama,
 'id' => $result[0]->id,
-'password' => $this->decrypt($result[0]->password)
+'password' => $this->decrypt($result[0]->password),
+'gambar' => $result[0]->gambar
 );
 // Add user data in session
 $this->session->set_userdata('logged_in', $session_data);

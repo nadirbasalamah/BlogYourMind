@@ -49,6 +49,7 @@ header("location: " . base_url('index.php/Pengguna/'));
       <div class="starter-template">
       <?php foreach ($profil as $post): ?>
       <h1>Profil : <?php echo $post->nama?></h1>
+      <img src="<?php echo base_url('users_profile/') . $post->gambar; ?>" class="rounded mx-auto d-block" alt="Display picture" width="100" height="100">
       <?php endforeach; ?>
       <h2>Daftar karya</h2>
       <h3>Cerpen</h3>
