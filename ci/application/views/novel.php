@@ -32,8 +32,8 @@
           
         </ul>
         <form class="form-inline my-2 my-lg-0" action="<?php echo base_url('index.php/postingan/pencarian'); ?>" method="post">
-          <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+          <input class="form-control mr-sm-2" type="text" name="search" placeholder="Cari" aria-label="Search">
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Cari</button>
           </form>
       </div>
     </nav>
