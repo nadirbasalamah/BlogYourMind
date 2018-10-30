@@ -17,7 +17,7 @@ header("location: " . base_url('index.php/Pengguna/'));
   </head>
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">BlogYourMind</a>
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="<?php echo base_url('index.php/Pengguna/explore'); ?>">BlogYourMind</a>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
           <a class="nav-link" href="<?php echo base_url('index.php/Pengguna/logout'); ?>">Logout</a>
@@ -34,15 +34,15 @@ header("location: " . base_url('index.php/Pengguna/'));
             <img src="<?php echo base_url('users_profile/') . $gambar; ?>" class="rounded mx-auto d-block" alt="Display picture" width="50" height="50">
             </li>
               <li class="nav-item">
-                <a class="nav-link active" href="<?php echo base_url('index.php/Pengguna/dasbor'); ?>">
+                <a class="nav-link" href="<?php echo base_url('index.php/Pengguna/dasbor'); ?>">
                   <span data-feather="home"></span>
-                  Dasbor 
+                  Dasbor <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('index.php/Pengguna/lihatPostingan'); ?>">
                   <span data-feather="file"></span>
-                  Daftar karya 
+                  Daftar karya
                 </a>
               </li>
               <li class="nav-item">
@@ -51,7 +51,7 @@ header("location: " . base_url('index.php/Pengguna/'));
                   Sunting profil
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url('index.php/Pengguna/tampilFavorit'); ?>">
                   <span data-feather="layers"></span>
                   Daftar favorit
@@ -62,63 +62,47 @@ header("location: " . base_url('index.php/Pengguna/'));
         </nav>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Tulis karya Anda</h1>
+            <h1 class="h2">Daftar karya favorit</h1>
           </div>
-    <!--<form action="<?php //echo base_url('index.php/Pengguna/unggahKarya'); ?>" method="post" <?php //echo form_open_multipart(base_url('index.php/Pengguna/unggahKarya'))?>-->
-    <?php echo form_open_multipart(base_url('index.php/Pengguna/unggahKarya')) ?>
-  <div class="form-group row">
-    <label for="judul" class="col-sm-2 col-form-label">Judul karya</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="judul" name="judul" placeholder="Masukkan judul karya">
-    </div>
-  </div>
-  <fieldset class="form-group">
-    <div class="row">
-      <legend class="col-form-label col-sm-2 pt-0">Kategori karya</legend>
-      <div class="col-sm-10">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="cerpen" checked>
-          <label class="form-check-label" for="gridRadios1">
-            Cerpen
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="novel">
-          <label class="form-check-label" for="gridRadios2">
-            Novel
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="puisi">
-          <label class="form-check-label" for="gridRadios3">
-            Puisi
-          </label>
-        </div>
-      </div>
-    </div>
-  </fieldset>
-  <div class="form-group row">
-    <div class="col-sm-2">Masukkan gambar sampul (format file : gif,png,jpg,svg)</div>
-        <div class="col-sm-10">
-            <div class="form-group">
-            <input type="file" class="form-control-file" id="gambar" name="gambarsampul">
-        </div>
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-12">
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Tulis karya Anda</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="konten"></textarea>
-        </div>
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-10">
-      <button type="submit" name="upload" class="btn btn-primary">Unggah karya</button>
-    </div>
-  </div>
-</form>
+          <h3>Cerpen</h3>
+            <div class="row">
+            <?php foreach ($cerpen as $post): ?>
+            <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title"><?php echo $post->judul; ?></h5>
+            <p class="card-text">Oleh : <?php echo $post->penulis; ?></p>
+            <a href="<?php echo base_url('index.php/Pengguna/bacaPostingan/') . $post->id_postingan; ?>" class="btn btn-primary">Baca</a>
+            </div> <!--konten-->
+            </div>
+            <?php endforeach; ?>
+            </div> <!--row-->
+            <h3>Novel</h3>
+            <div class="row">
+            <?php foreach ($novel as $post): ?>
+            <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title"><?php echo $post->judul; ?></h5>
+            <p class="card-text">Oleh : <?php echo $post->penulis; ?></p>
+            <a href="<?php echo base_url('index.php/Pengguna/bacaPostingan/') . $post->id_postingan; ?>" class="btn btn-primary">Baca</a>
+            </div> <!--konten-->
+            </div>
+            <?php endforeach; ?>
+            </div> <!--row-->
+            <h3>Puisi</h3>
+            <div class="row">
+            <?php foreach ($puisi as $post): ?>
+            <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title"><?php echo $post->judul; ?></h5>
+            <p class="card-text">Oleh : <?php echo $post->penulis; ?></p>
+            <a href="<?php echo base_url('index.php/Pengguna/bacaPostingan/') . $post->id_postingan; ?>" class="btn btn-primary">Baca</a>
+            </div> <!--konten-->
+            </div>
+            <?php endforeach; ?>
+            </div> <!--row-->
           <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
           <script src="<?php echo base_url(); ?>assets/js/vendor/popper.min.js"></script>
           <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>

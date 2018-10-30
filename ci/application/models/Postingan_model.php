@@ -75,5 +75,38 @@
             $query = $this->db->get('postingan');
             return $query->result();
         }
+        public function get_favorite_posts_cerpen($id)
+        {
+            $this->load->database();
+            $this->db->select('favorit.id,favorit.id_postingan,postingan.penulis,postingan.gambar,postingan.judul,postingan.konten,postingan.kategori');
+            $this->db->from('favorit');
+            $this->db->join('postingan','favorit.id_postingan = postingan.id_postingan');
+            $this->db->where('id',$id);
+            $this->db->where('postingan.kategori','Cerpen');
+            $query = $this->db->get();
+            return $query->result();
+        }
+        public function get_favorite_posts_novel($id)
+        {
+            $this->load->database();
+            $this->db->select('favorit.id,favorit.id_postingan,postingan.penulis,postingan.gambar,postingan.judul,postingan.konten,postingan.kategori');
+            $this->db->from('favorit');
+            $this->db->join('postingan','favorit.id_postingan = postingan.id_postingan');
+            $this->db->where('id',$id);
+            $this->db->where('postingan.kategori','Novel');
+            $query = $this->db->get();
+            return $query->result();
+        }
+        public function get_favorite_posts_puisi($id)
+        {
+            $this->load->database();
+            $this->db->select('favorit.id,favorit.id_postingan,postingan.penulis,postingan.gambar,postingan.judul,postingan.konten,postingan.kategori');
+            $this->db->from('favorit');
+            $this->db->join('postingan','favorit.id_postingan = postingan.id_postingan');
+            $this->db->where('id',$id);
+            $this->db->where('postingan.kategori','Puisi');
+            $query = $this->db->get();
+            return $query->result();
+        }
     }
 ?>

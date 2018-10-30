@@ -47,8 +47,8 @@ header("location: " . base_url('index.php/Pengguna/'));
     </nav>
     <main role="main" class="container">
       <div class="starter-template">
-      <a class="btn btn-primary" href="#" role="button">Tambahkan ke favorit</a>
       <?php foreach ($postingan as $post): ?>
+      <a class="btn btn-primary" href="<?php echo base_url('index.php/Pengguna/tambahFavorit/') . $post->id_postingan;?> " role="button">Tambahkan ke favorit</a>
       <h1><?php echo $post->judul; ?></h1>
       <img class="rounded mx-auto d-block" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Cover image">
       <br>

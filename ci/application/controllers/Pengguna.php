@@ -322,6 +322,32 @@ public function lihatProfil($id)
 
             $this->load->view('profil_pengguna',$data);
 }
+public function tambahFavorit($id)
+{
+            $this->load->helper('url');
+            $data = array('id' => $this->session->userdata['logged_in']['id'], 
+                'id_postingan' => $id
+            );
+            $this->Pengguna_model->addtoFavorite($data);
+            echo("<script>alert('Data berhasil ditambahkan ke dalam daftar favorit!')</script>");
+            redirect(base_url('index.php/Pengguna/bacaPostingan ' . $id),'refresh');
+            
+}
+public function tampilFavorit()
+{
+            $this->load->helper('url');
+            $this->load->model('Postingan_model');
+            $id = $this->session->userdata['logged_in']['id'];
+            $cerpen = $this->Postingan_model->get_favorite_posts_cerpen($id);
+            $novel = $this->Postingan_model->get_posts_novel($id);
+            $puisi = $this->Postingan_model->get_posts_puisi($id);
+    
+            $data['cerpen'] = $cerpen;
+            $data['novel'] = $novel;
+            $data['puisi'] = $puisi;
+
+            $this->load->view('daftar_favorit',$data);
+}
 }
 
 ?>

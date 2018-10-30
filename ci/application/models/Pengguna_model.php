@@ -71,5 +71,10 @@
             $this->db->where('id_penulis',$data['id']);
             $this->db->update('postingan');
             }
+            public function addtoFavorite($data)
+            {
+                $this->load->database();
+                $this->db->insert('favorit',$data);
+            }
     }
 ?>
