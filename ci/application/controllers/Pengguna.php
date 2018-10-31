@@ -339,8 +339,8 @@ public function tampilFavorit()
             $this->load->model('Postingan_model');
             $id = $this->session->userdata['logged_in']['id'];
             $cerpen = $this->Postingan_model->get_favorite_posts_cerpen($id);
-            $novel = $this->Postingan_model->get_posts_novel($id);
-            $puisi = $this->Postingan_model->get_posts_puisi($id);
+            $novel = $this->Postingan_model->get_favorite_posts_novel($id);
+            $puisi = $this->Postingan_model->get_favorite_posts_puisi($id);
     
             $data['cerpen'] = $cerpen;
             $data['novel'] = $novel;

@@ -52,7 +52,7 @@ header("location: " . base_url('index.php/Pengguna/'));
                 </a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('index.php/Pengguna/tampilFavorit'); ?>">
+                <a class="nav-link active" href="<?php echo base_url('index.php/Pengguna/tampilFavorit'); ?>">
                   <span data-feather="layers"></span>
                   Daftar favorit
                 </a>
