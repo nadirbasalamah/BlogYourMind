@@ -51,27 +51,27 @@
             $query = $this->db->get('postingan');
             return $query->result();
         }
-        public function get_pengguna_posts_cerpen($penulis)
+        public function get_pengguna_posts_cerpen($id)
         {
             $this->load->database();
             $this->db->where('kategori','Cerpen');
-            $this->db->where('penulis', $penulis);
+            $this->db->where('id_penulis', $id);
             $query = $this->db->get('postingan');
             return $query->result();
         }
-        public function get_pengguna_posts_novel($penulis)
+        public function get_pengguna_posts_novel($id)
         {
             $this->load->database();
             $this->db->where('kategori','Novel');
-            $this->db->where('penulis', $penulis);
+            $this->db->where('id_penulis', $id);
             $query = $this->db->get('postingan');
             return $query->result();
         }
-        public function get_pengguna_posts_puisi($penulis)
+        public function get_pengguna_posts_puisi($id)
         {
             $this->load->database();
             $this->db->where('kategori','Puisi');
-            $this->db->where('penulis', $penulis);
+            $this->db->where('id_penulis', $id);
             $query = $this->db->get('postingan');
             return $query->result();
         }

@@ -242,10 +242,10 @@ public function lihatPostingan()
 {
     $this->load->helper('url');
     $this->load->model('Postingan_model');
-    $penulis = $this->session->userdata['logged_in']['nama'];
-    $cerpen = $this->Postingan_model->get_pengguna_posts_cerpen($penulis);
-    $novel = $this->Postingan_model->get_pengguna_posts_novel($penulis);
-    $puisi = $this->Postingan_model->get_pengguna_posts_puisi($penulis);
+    $id = $this->session->userdata['logged_in']['id'];
+    $cerpen = $this->Postingan_model->get_pengguna_posts_cerpen($id);
+    $novel = $this->Postingan_model->get_pengguna_posts_novel($id);
+    $puisi = $this->Postingan_model->get_pengguna_posts_puisi($id);
     $data['cerpen'] = $cerpen;
     $data['novel'] = $novel;
     $data['puisi'] = $puisi;
@@ -311,9 +311,9 @@ public function lihatProfil($id)
             $this->load->helper('url');
             $this->load->model('Postingan_model');
             $profil = $this->Pengguna_model->selectProfile($id);
-            $cerpen = $this->Postingan_model->get_posts_cerpen();
-            $novel = $this->Postingan_model->get_posts_novel();
-            $puisi = $this->Postingan_model->get_posts_puisi();
+            $cerpen = $this->Postingan_model->get_pengguna_posts_cerpen($id);
+            $novel = $this->Postingan_model->get_pengguna_posts_novel($id);
+            $puisi = $this->Postingan_model->get_pengguna_posts_puisi($id);
             
             $data['profil'] = $profil;
             $data['cerpen'] = $cerpen;
