@@ -348,6 +348,14 @@ public function tampilFavorit()
 
             $this->load->view('daftar_favorit',$data);
 }
+public function suka($id)
+{
+            $this->load->helper('url');
+            $this->load->model('Postingan_model');
+            $this->Postingan_model->like_post($id);
+            echo("<script>alert('Data berhasil disukai!')</script>");
+            redirect(base_url('index.php/Pengguna/bacaPostingan/' . $id),'refresh');
+}
 }
 
 ?>

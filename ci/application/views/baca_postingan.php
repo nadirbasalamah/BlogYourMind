@@ -56,8 +56,12 @@ header("location: " . base_url('index.php/Pengguna/'));
       <h6>Kategori : <?php echo $post->kategori?></h6>
       <br>
       <p><?php echo $post->konten; ?></p>
+      <br>
+      <p><?php echo $post->suka;?> pengguna menyukai karya ini</p>
+      <a class="btn btn-success" href="<?php echo base_url('index.php/Pengguna/suka/') . $post->id_postingan;?> " role="button">Suka</a>
       <?php endforeach; ?>
       </div>
+      
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
     </main>

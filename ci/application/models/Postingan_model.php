@@ -101,5 +101,18 @@
             $query = $this->db->get();
             return $query->result();
         }
+        public function like_post($id)
+        {
+            $likes = 0;
+            $this->load->database();
+            $row = $this->db->query('SELECT suka AS jumlah_suka FROM postingan WHERE id_postingan = ' . $id)->row();
+            if($row) {
+                $likes = $row->jumlah_suka;
+            }
+                $likes = $likes + 1;
+                $this->db->set('suka',$likes);
+                $this->db->where('id_postingan',$id);
+                $this->db->update('postingan');
+        }
     }
 ?>
