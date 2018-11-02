@@ -114,5 +114,20 @@
                 $this->db->where('id_postingan',$id);
                 $this->db->update('postingan');
         }
+        public function comment_post($data)
+        {
+            $this->load->database();
+            $this->db->insert('komentar',$data);
+        }
+        public function getComments($id)
+        {
+            $this->load->database();
+            $this->db->select('pengguna.nama, komentar.isi');
+            $this->db->from('pengguna');
+            $this->db->join('komentar','pengguna.id = komentar.id');
+            $this->db->where('id_postingan',$id);
+            $query = $this->db->get();
+            return $query->result();
+        }
     }
 ?>

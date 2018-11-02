@@ -270,7 +270,9 @@ public function bacaPostingan($id)
             $this->load->helper('url');
             $this->load->model('Postingan_model');
             $postingan = $this->Postingan_model->get_post($id);
+            $komentar = $this->Postingan_model->getComments($id);
             $data['postingan'] = $postingan;
+            $data['komentar'] = $komentar;
             $this->load->view('baca_postingan',$data);
 }
 public function exploreCerpen()
@@ -354,6 +356,19 @@ public function suka($id)
             $this->load->model('Postingan_model');
             $this->Postingan_model->like_post($id);
             echo("<script>alert('Data berhasil disukai!')</script>");
+            redirect(base_url('index.php/Pengguna/bacaPostingan/' . $id),'refresh');
+}
+public function komentar($id)
+{
+            $this->load->helper('url');
+            $this->load->model('Postingan_model');
+            $data = array(
+                'id' => $this->session->userdata['logged_in']['id'],
+                'id_postingan' => $id,
+                'isi' => $this->input->post('komentar')
+            );
+            $this->Postingan_model->comment_post($data);
+            echo("<script>alert('Komentar berhasil ditambahkan!')</script>");
             redirect(base_url('index.php/Pengguna/bacaPostingan/' . $id),'refresh');
 }
 }

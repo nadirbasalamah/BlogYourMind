@@ -52,6 +52,12 @@
       <br>
       <p><?php echo $post->konten; ?></p>
       <?php endforeach; ?>
+      <br>
+      <h6>Komentar</h6>
+      <?php foreach ($komentar as $kmn):?>
+      <p style="font-weight:bold;"><?php echo $kmn->nama;?></p>
+      <p><?php echo $kmn->isi;?></p>
+      <?php endforeach;?>
       </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>

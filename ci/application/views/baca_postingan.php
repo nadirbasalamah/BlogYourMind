@@ -59,9 +59,23 @@ header("location: " . base_url('index.php/Pengguna/'));
       <br>
       <p><?php echo $post->suka;?> pengguna menyukai karya ini</p>
       <a class="btn btn-success" href="<?php echo base_url('index.php/Pengguna/suka/') . $post->id_postingan;?> " role="button">Suka</a>
+      <h6>Komentar</h6>
+      <?php foreach ($komentar as $kmn):?>
+      <p style="font-weight:bold;"><?php echo $kmn->nama;?></p>
+      <p><?php echo $kmn->isi;?></p>
+      <?php endforeach;?>
       <?php endforeach; ?>
+      <br>
+      <?php foreach ($postingan as $post):?>
+      <form action="<?php echo base_url('index.php/Pengguna/komentar/') . $post->id_postingan;?>" method="post">
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Masukkan komentar Anda</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="komentar"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Unggah</button>
+      </form>
       </div>
-      
+      <?php endforeach;?>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
     </main>

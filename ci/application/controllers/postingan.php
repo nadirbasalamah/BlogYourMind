@@ -65,6 +65,8 @@
             $this->load->helper('url');
             $this->load->model('Postingan_model');
             $postingan = $this->Postingan_model->get_post($id);
+            $komentar = $this->Postingan_model->getComments($id);
+            $data['komentar'] = $komentar;
             $data['postingan'] = $postingan;
             $this->load->view('baca',$data);
         }
