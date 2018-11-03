@@ -331,7 +331,7 @@ public function tambahFavorit($id)
                 'id_postingan' => $id
             );
             $this->Pengguna_model->addtoFavorite($data);
-            echo("<script>alert('Data berhasil ditambahkan ke dalam daftar favorit!')</script>");
+            echo("<script>alert('Karya berhasil ditambahkan ke dalam daftar favorit!')</script>");
             redirect(base_url('index.php/Pengguna/bacaPostingan ' . $id),'refresh');
             
 }
@@ -355,7 +355,7 @@ public function suka($id)
             $this->load->helper('url');
             $this->load->model('Postingan_model');
             $this->Postingan_model->like_post($id);
-            echo("<script>alert('Data berhasil disukai!')</script>");
+            echo("<script>alert('Karya berhasil disukai!')</script>");
             redirect(base_url('index.php/Pengguna/bacaPostingan/' . $id),'refresh');
 }
 public function komentar($id)
