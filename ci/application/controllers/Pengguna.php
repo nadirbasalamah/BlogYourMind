@@ -170,6 +170,7 @@ public function unggahKarya() {
             $this->load->library('upload', $config); //Loads the Uploader Library
             $this->upload->initialize($config);        
             if ( ! $this->upload->do_upload('gambarsampul'))  {
+                $file_loc = "default.svg";
             }
             else
             { 
@@ -189,10 +190,14 @@ public function unggahKarya() {
     $this->load->helper('url');
     
     $this->load->model('Postingan_model');
-
-    $this->Postingan_model->unggah_karya($data);
-    
-    redirect(base_url('index.php/Pengguna/dasbor'),'refresh');
+    if ($data['judul'] == null && $data['konten'] == null) {
+        echo("<script>alert('Judul dan konten tidak boleh kosong!')</script>");
+        redirect(base_url('index.php/Pengguna/tulis'),'refresh');
+    } else {
+        $this->Postingan_model->unggah_karya($data);
+        echo("<script>alert('Karya berhasil diunggah!')</script>");
+        redirect(base_url('index.php/Pengguna/dasbor'),'refresh');
+    }
 }
 public function createPassword($passwd)
 {
