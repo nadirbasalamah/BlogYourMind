@@ -241,6 +241,7 @@ public function editProfil()
     );
     $this->Pengguna_model->update_profile($data);
     $this->Pengguna_model->change_name($data);
+    echo("<script>alert('Data berhasil diubah!')</script>");
     redirect(base_url('index.php/Pengguna/dasbor'),'refresh');
 }
 public function lihatPostingan()
