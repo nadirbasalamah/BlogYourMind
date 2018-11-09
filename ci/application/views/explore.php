@@ -34,7 +34,7 @@ header("location: " . base_url('index.php/Pengguna/'));
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $nama;?></a>
             <div class="dropdown-menu" aria-labelledby="dropdown04">
-              <a class="dropdown-item" href="<?php echo base_url('index.php/Pengguna/dasbor'); ?>">Lihat dasbor</a>
+              <a class="dropdown-item" href="<?php echo base_url('index.php/Pengguna/dasbor'); ?>">Lihat dashboard</a>
               <a class="dropdown-item" href="<?php echo base_url('index.php/Pengguna/logout'); ?>">Log out</a>
             </div>
           </li>
@@ -52,7 +52,7 @@ header("location: " . base_url('index.php/Pengguna/'));
       <h3>Jelajahi berbagai karya menarik</h3>
       <br>
     <h3>Baca Cerpen Terbaik</h3>
-    <div class="row">
+    <div class="card-columns">
     <?php foreach ($cerpen as $post): ?>
     <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
@@ -66,7 +66,7 @@ header("location: " . base_url('index.php/Pengguna/'));
       </div>
     <br>
     <h3>Baca Novel Terbaik</h3>
-    <div class="row">
+    <div class="card-columns">
     <?php foreach ($novel as $post): ?>
     <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
@@ -80,7 +80,7 @@ header("location: " . base_url('index.php/Pengguna/'));
     </div>
     <br>
     <h3>Baca Puisi Terbaik</h3>
-    <div class="row">
+    <div class="card-columns">
     <?php foreach ($puisi as $post): ?>
     <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="<?php echo  base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">

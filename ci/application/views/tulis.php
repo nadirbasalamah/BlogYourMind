@@ -11,7 +11,7 @@ header("location: " . base_url('index.php/Pengguna/'));
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Halaman dasbor</title>
+    <title>Halaman dashboard</title>
     <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/dashboard.css" rel="stylesheet">
   </head>
@@ -36,7 +36,7 @@ header("location: " . base_url('index.php/Pengguna/'));
               <li class="nav-item">
                 <a class="nav-link active" href="<?php echo base_url('index.php/Pengguna/dasbor'); ?>">
                   <span data-feather="home"></span>
-                  Dasbor 
+                  Dashboard 
                 </a>
               </li>
               <li class="nav-item">

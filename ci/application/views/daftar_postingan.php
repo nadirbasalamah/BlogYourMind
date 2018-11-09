@@ -36,7 +36,7 @@ header("location: " . base_url('index.php/Pengguna/'));
               <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('index.php/Pengguna/dasbor'); ?>">
                   <span data-feather="home"></span>
-                  Dasbor <span class="sr-only">(current)</span>
+                  Dashboard <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
@@ -65,7 +65,7 @@ header("location: " . base_url('index.php/Pengguna/'));
             <h1 class="h2">Daftar karya Anda</h1>
           </div>
           <h3>Cerpen</h3>
-            <div class="row">
+            <div class="card-columns">
             <?php foreach ($cerpen as $post): ?>
             <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
@@ -78,7 +78,7 @@ header("location: " . base_url('index.php/Pengguna/'));
             <?php endforeach; ?>
             </div> <!--row-->
             <h3>Novel</h3>
-            <div class="row">
+            <div class="card-columns">
             <?php foreach ($novel as $post): ?>
             <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
@@ -91,7 +91,7 @@ header("location: " . base_url('index.php/Pengguna/'));
             <?php endforeach; ?>
             </div> <!--row-->
             <h3>Puisi</h3>
-            <div class="row">
+            <div class="card-columns">
             <?php foreach ($puisi as $post): ?>
             <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">

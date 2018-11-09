@@ -45,7 +45,7 @@
       <div class="starter-template">
       <?php foreach ($postingan as $post): ?>
       <h1><?php echo $post->judul; ?></h1>
-      <img class="rounded mx-auto d-block" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Cover image">
+      <img class="rounded mx-auto d-block" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Cover image" width="640" height="480">
       <br>
       <h5>Oleh : <?php echo $post->penulis; ?></h5>
       <h6>Kategori : <?php echo $post->kategori?></h6>

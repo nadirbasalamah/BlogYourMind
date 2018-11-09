@@ -7,3 +7,6 @@ body {
 button {
   background-color: white;
 }
+.card-columns {
+  column-count: 4;
+}

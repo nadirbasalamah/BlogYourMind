@@ -34,7 +34,7 @@ header("location: " . base_url('index.php/Pengguna/'));
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $nama;?></a>
             <div class="dropdown-menu" aria-labelledby="dropdown04">
-              <a class="dropdown-item" href="<?php echo base_url('index.php/Pengguna/dasbor'); ?>">Lihat dasbor</a>
+              <a class="dropdown-item" href="<?php echo base_url('index.php/Pengguna/dasbor'); ?>">Lihat dashboard</a>
               <a class="dropdown-item" href="<?php echo base_url('index.php/Pengguna/logout'); ?>">Log out</a>
             </div>
           </li>
@@ -50,7 +50,7 @@ header("location: " . base_url('index.php/Pengguna/'));
       <?php foreach ($postingan as $post): ?>
       <a class="btn btn-primary" href="<?php echo base_url('index.php/Pengguna/tambahFavorit/') . $post->id_postingan;?> " role="button">Tambahkan ke favorit</a>
       <h1><?php echo $post->judul; ?></h1>
-      <img class="rounded mx-auto d-block" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Cover image">
+      <img class="rounded mx-auto d-block" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Cover image" width="640" height="480">
       <br>
       <h5>Oleh : <a href="<?php echo base_url('index.php/Pengguna/lihatProfil/') . $post->id_penulis;?> "><?php echo $post->penulis; ?></a></h5>
       <h6>Kategori : <?php echo $post->kategori?></h6>

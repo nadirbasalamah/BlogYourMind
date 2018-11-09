@@ -47,7 +47,7 @@
       <br>
       <h3>Daftar novel</h3>
       <br>
-      <div class="row">
+      <div class="card-columns">
     <?php foreach ($novel as $post): ?>
     <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">

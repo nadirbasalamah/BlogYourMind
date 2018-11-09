@@ -34,7 +34,7 @@ header("location: " . base_url('index.php/Pengguna/'));
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $nama;?></a>
             <div class="dropdown-menu" aria-labelledby="dropdown04">
-              <a class="dropdown-item" href="<?php echo base_url('index.php/Pengguna/dasbor'); ?>">Lihat dasbor</a>
+              <a class="dropdown-item" href="<?php echo base_url('index.php/Pengguna/dasbor'); ?>">Lihat dashboard</a>
               <a class="dropdown-item" href="<?php echo base_url('index.php/Pengguna/logout'); ?>">Log out</a>
             </div>
           </li>
@@ -49,7 +49,7 @@ header("location: " . base_url('index.php/Pengguna/'));
       <div class="starter-template">
       <h1>Hasil pencarian</h1>
       <br>
-      <div class="row">
+      <div class="card-columns">
     <?php foreach ($hasil as $post): ?>
     <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar ?>" alt="Card image cap">
