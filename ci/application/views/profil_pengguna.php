@@ -53,7 +53,7 @@ header("location: " . base_url('index.php/Pengguna/'));
       <?php endforeach; ?>
       <h2>Daftar karya</h2>
       <h3>Cerpen</h3>
-      <div class="card-columns">
+      <div class="row">
     <?php foreach ($cerpen as $post): ?>
     <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
@@ -67,7 +67,7 @@ header("location: " . base_url('index.php/Pengguna/'));
       </div>
       <br/>
       <h3>Novel</h3>
-      <div class="card-columns">
+      <div class="row">
     <?php foreach ($novel as $post): ?>
     <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
@@ -81,7 +81,7 @@ header("location: " . base_url('index.php/Pengguna/'));
     </div>
       <br/>
       <h3>Puisi</h3>
-      <div class="card-columns">
+      <div class="row">
     <?php foreach ($puisi as $post): ?>
     <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="<?php echo  base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">

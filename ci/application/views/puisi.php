@@ -4,7 +4,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="<?php echo base_url(); ?>assets/starter-template.css" rel="stylesheet">
-  <link href="starter-template.css" rel="stylesheet">
     <title>BlogYourMind</title>
   </head>
   <body>
@@ -47,7 +46,7 @@
       <br>
       <h3>Daftar puisi</h3>
       <br>
-      <div class="card-columns">
+      <div class="row">
     <?php foreach ($puisi as $post): ?>
     <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="<?php echo base_url('users_img/') . $post->gambar; ?>" alt="Card image cap">
