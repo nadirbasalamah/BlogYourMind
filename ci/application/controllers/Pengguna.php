@@ -338,7 +338,7 @@ public function tambahFavorit($id)
             );
             $this->Pengguna_model->addtoFavorite($data);
             echo("<script>alert('Karya berhasil ditambahkan ke dalam daftar favorit!')</script>");
-            redirect(base_url('index.php/Pengguna/bacaPostingan ' . $id),'refresh');
+            redirect(base_url('index.php/Pengguna/bacaPostingan/' . $id),'refresh');
             
 }
 public function tampilFavorit()
