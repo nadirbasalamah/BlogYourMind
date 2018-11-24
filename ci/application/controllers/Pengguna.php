@@ -192,7 +192,7 @@ public function unggahKarya() {
     $this->load->model('Postingan_model');
     if ($data['judul'] == null && $data['konten'] == null) {
         echo("<script>alert('Judul dan konten tidak boleh kosong!')</script>");
-        //redirect(base_url('index.php/Pengguna/tulis'),'refresh');
+        redirect(base_url('index.php/Pengguna/tulis'),'refresh');
     } else {
         $this->Postingan_model->unggah_karya($data);
         echo("<script>alert('Karya berhasil diunggah!')</script>");
