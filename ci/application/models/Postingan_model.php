@@ -101,19 +101,19 @@
             $query = $this->db->get();
             return $query->result();
         }
-        public function like_post($id)
+        public function like_post($data)
         {
-            $likes = 0;
             $this->load->database();
-            $row = $this->db->query('SELECT suka AS jumlah_suka FROM postingan WHERE id_postingan = ' . $id)->row();
-            if($row) {
-                $likes = $row->jumlah_suka;
-            }
-                $likes = $likes + 1;
-                $this->db->set('suka',$likes);
-                $this->db->where('id_postingan',$id);
+            $this->db->insert('suka',$data);
+            //update number of likes
+            $query = $this->db->query('SELECT DISTINCT(id) FROM suka WHERE id_postingan = ' . $data['id_postingan']);
+            $jumlah_suka = $query->num_rows();
+                //$likes = $jumlah_suka;
+                $this->db->set('postingan.suka',$jumlah_suka);
+                $this->db->where('postingan.id_postingan',$data['id_postingan']);
                 $this->db->update('postingan');
         }
+        
         public function comment_post($data)
         {
             $this->load->database();

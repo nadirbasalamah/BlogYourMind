@@ -356,7 +356,10 @@ public function suka($id)
 {
             $this->load->helper('url');
             $this->load->model('Postingan_model');
-            $this->Postingan_model->like_post($id);
+            $data = array('id' => $this->session->userdata['logged_in']['id'], 
+                'id_postingan' => $id
+            );
+            $this->Postingan_model->like_post($data);
             echo("<script>alert('Karya berhasil disukai!')</script>");
             redirect(base_url('index.php/Pengguna/bacaPostingan/' . $id),'refresh');
 }
