@@ -56,7 +56,6 @@ public function new_user_registration() {
 // Check validation for user input in SignUp form
 $this->form_validation->set_rules('username', 'Username', 'trim|required');
 $this->form_validation->set_rules('password', 'Password', 'trim|required');
-$this->form_validation->set_rules('email', 'Email', 'trim|required');
 
 if ($this->form_validation->run() == FALSE) {
 $this->load->view('daftar'); 
@@ -65,9 +64,6 @@ $data = array(
 'id' => 0,
 'nama' => $this->input->post('username'),
 'password' => $this->createPassword($this->input->post('password')),
-'email' => $this->input->post('email'),
-'alamat' => $this->input->post('alamat'),
-'no_telp' => $this->input->post('notelp'),
 'gambar' => "default.png"
 );
 $result = $this->Pengguna_model->registration_insert($data);

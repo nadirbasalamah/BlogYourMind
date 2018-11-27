@@ -15,12 +15,6 @@
       <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Nama pengguna" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-      <label for="inputSurel" class="sr-only">Alamat email</label>
-      <input type="email" name="email" id="inputSurel" class="form-control" placeholder="Alamat email" required>
-      <label for="inputAddress" class="sr-only">Alamat</label>
-      <input type="text" name="alamat" id="inputAddress" class="form-control" placeholder="Alamat" required autofocus>
-      <label for="inputPN" class="sr-only">Nomor ponsel</label>
-      <input type="number" name="notelp" id="inputPN" class="form-control" placeholder="Nomor ponsel" required autofocus>
       <br/>
       <br/>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
